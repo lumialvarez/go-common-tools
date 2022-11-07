@@ -41,6 +41,7 @@ pipeline {
             steps {
                 git branch: 'main', credentialsId: 'git-token-lumi', url: 'https://github.com/lumialvarez/go-common-tools.git'
                 sh "git config  credential.username ci-jenkins"
+                sh "git tag -d v" + APP_VERSION
                 sh "git tag v" + APP_VERSION + "  HEAD"
                 sh "git push origin --tags"
             }
