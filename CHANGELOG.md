@@ -5,6 +5,10 @@ Go Common Tools
 - JWT tools
 - Hash utils
 
+## [0.0.5] - 14/10/2022
+### Fixed
+- Test jenkins git tag
+
 ## [0.0.4] - 14/10/2022
 ### Fixed
 - Delete .idea folder
