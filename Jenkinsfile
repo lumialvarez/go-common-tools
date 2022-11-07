@@ -44,7 +44,6 @@ pipeline {
                 withCredentials([usernamePassword(credentialsId: 'git-token-lumi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
                     sh "git config credential.username $USERNAME"
                     sh "git remote set-url --push origin https://$PASSWORD@github.com/lumialvarez/go-common-tools.git"
-                    sh "git tag -d v" + APP_VERSION
                     sh "git tag v" + APP_VERSION + "  HEAD"
                     sh "git push origin --tags"
                 }
