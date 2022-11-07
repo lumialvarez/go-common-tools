@@ -20,6 +20,7 @@ pipeline {
                currentBuild.displayName = "#" + currentBuild.number + " - v" + APP_VERSION
             }
             script{
+                if(currentBuild.previousSuccessfulBuild) {
                     lastBuild = currentBuild.previousSuccessfulBuild.displayName.replaceFirst(/^#[0-9]+ - v/, "")
                     echo "Last success version: ${lastBuild} \nNew version to deploy: ${APP_VERSION}"
                     if(lastBuild == APP_VERSION)  {
@@ -27,6 +28,7 @@ pipeline {
                          error("Aborted: A version that already exists cannot be deployed a second time")
                     }
                 }
+            }
          }
       }
       stage('Test') {
