@@ -5,9 +5,15 @@ Go Common Tools
 - JWT tools
 - Hash utils
 
-## [0.0.5] - 14/10/2022
+## [1.0.0] - 07/11/2022
+### Added
+- Hash functions
 ### Fixed
-- Test jenkins git tag
+- Fixed jenkins git tag in pipeline
+
+## [0.0.5] - 07/11/2022
+### Fixed
+- Jenkins git tag in pipeline
 
 ## [0.0.4] - 14/10/2022
 ### Fixed

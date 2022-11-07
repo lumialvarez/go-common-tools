@@ -40,10 +40,14 @@ pipeline {
       stage('GIT tag') {
             steps {
                 git branch: 'main', credentialsId: 'git-token-lumi', url: 'https://github.com/lumialvarez/go-common-tools.git'
-                sh "git config  credential.username ci-jenkins"
-                sh "git tag -d v" + APP_VERSION
-                sh "git tag v" + APP_VERSION + "  HEAD"
-                sh "git push origin --tags"
+
+                withCredentials([usernamePassword(credentialsId: 'git-token-lumi', usernameVariable: 'USERNAME', passwordVariable: 'PASSWORD')]) {
+                    sh "git config credential.username $USERNAME"
+                    sh "git remote set-url --push origin https://$PASSWORD@github.com/lumialvarez/go-common-tools.git"
+                    sh "git tag -d v" + APP_VERSION
+                    sh "git tag v" + APP_VERSION + "  HEAD"
+                    sh "git push origin --tags"
+                }
             }
         }
    }
