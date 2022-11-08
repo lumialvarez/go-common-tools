@@ -2,8 +2,12 @@
 Go Common Tools
 
 ## [Unreleased]
-- JWT tools
-- Hash utils
+
+## [1.0.1] - 07/11/2022
+### Fixed
+- Added Bad Gateway Api Error
+- Added Forbidden Api Error
+- Added Not Found Api Error
 
 ## [1.0.0] - 07/11/2022
 ### Added
