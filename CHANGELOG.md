@@ -3,6 +3,12 @@ Go Common Tools
 
 ## [Unreleased]
 
+## [1.1.0] - 09/11/2022
+### Added
+- Added gRPC status code to apiErrors
+### Fixed
+- Added Conflict Api Error
+
 ## [1.0.1] - 07/11/2022
 ### Fixed
 - Added Bad Gateway Api Error
