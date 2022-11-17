@@ -6,7 +6,7 @@ func NewForbiddenError(message string, cause ...string) *APIError {
 	return &APIError{
 		Status:  http.StatusForbidden,
 		Message: message,
-		Err:     "Bad Gateway Error",
+		Err:     "Forbidden Error",
 		Cause:   cause,
 	}
 }

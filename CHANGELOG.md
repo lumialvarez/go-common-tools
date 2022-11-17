@@ -3,6 +3,13 @@ Go Common Tools
 
 ## [Unreleased]
 
+## [1.2.0] - 16/11/2022
+### Added
+- Validations for Mail
+- Validations for Password
+### Fixed
+- Change Forbidden error message 
+
 ## [1.1.0] - 09/11/2022
 ### Added
 - Added gRPC status code to apiErrors
