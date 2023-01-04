@@ -18,6 +18,17 @@ func ErrorWrapper(handlerFunc HandlerFunc, c *gin.Context) {
 	}
 }
 
+// HandlerFuncParams HandlerFunc is the func type for the custom handlers with params.
+type HandlerFuncParams func(c *gin.Context, param ...string) *apierrors.APIError
+
+// ErrorWrapperParams ErrorWrapper if handlerFunc return a error,then response will be composed from error's information.
+func ErrorWrapperParams(HandlerFuncParams HandlerFuncParams, c *gin.Context, param ...string) {
+	err := HandlerFuncParams(c, param...)
+	if err != nil {
+		c.JSON(err.Status, err)
+	}
+}
+
 func ToAPIError(grpcError error) *apierrors.APIError {
 	if e, ok := status.FromError(grpcError); ok {
 		switch e.Code() {

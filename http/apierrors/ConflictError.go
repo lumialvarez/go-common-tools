@@ -6,7 +6,7 @@ func NewConflictError(message string, cause ...string) *APIError {
 	return &APIError{
 		Status:  http.StatusConflict,
 		Message: message,
-		Err:     "Conflict",
+		Err:     "Conflict Error",
 		Cause:   cause,
 	}
 }
