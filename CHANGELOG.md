@@ -3,6 +3,12 @@ Go Common Tools
 
 ## [Unreleased]
 
+## [1.3.0] - 04/01/2023
+### Added
+- Custom handler with params
+### Fixed
+- Change Conflict error message
+
 ## [1.2.0] - 16/11/2022
 ### Added
 - Validations for Mail
