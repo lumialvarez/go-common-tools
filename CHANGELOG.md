@@ -3,6 +3,11 @@ Go Common Tools
 
 ## [Unreleased]
 
+## [1.4.0] - 29/01/2023
+### Added
+- Postgresql Client
+- RabbitMQ Client
+
 ## [1.3.0] - 04/01/2023
 ### Added
 - Custom handler with params
