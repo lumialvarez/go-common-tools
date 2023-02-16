@@ -3,6 +3,10 @@ Go Common Tools
 
 ## [Unreleased]
 
+## [1.5.1] - 15/02/2023
+### Fixed
+- Change Internal Server Error error status
+
 ## [1.5.0] - 29/01/2023
 ### Added
 - RabbitMQ Publish Notification Service
