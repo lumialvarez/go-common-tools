@@ -3,10 +3,15 @@ Go Common Tools
 
 ## [Unreleased]
 
+## [1.5.2] - 27/06/2023
+### Fixed
+- Add env variable verification in RabbitMQ service
+- Update dependencies versions
+
 ## [1.5.1] - 15/02/2023
 ### Fixed
 - Change Internal Server Error error status
-
+git 
 ## [1.5.0] - 29/01/2023
 ### Added
 - RabbitMQ Publish Notification Service

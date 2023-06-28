@@ -3,6 +3,7 @@ package notification
 import (
 	"context"
 	"encoding/json"
+	"fmt"
 	"github.com/lumialvarez/go-common-tools/platform/rabbitmq"
 	"github.com/lumialvarez/go-common-tools/service/rabbitmq/notification/dto"
 	amqp "github.com/rabbitmq/amqp091-go"
@@ -11,24 +12,32 @@ import (
 	"time"
 )
 
+const (
+	RabbitmqUrlEnvName = "RABBITMQ_URL"
+	QueueName          = "NOTIFICATION_QUEUE"
+)
+
 type Service struct {
 	rabbitmq rabbitmq.Client
 }
 
 func Init() Service {
-	rabbitUrl := os.Getenv("RABBITMQ_URL")
+	rabbitUrl, ok := os.LookupEnv(RabbitmqUrlEnvName)
+	if !ok {
+		panic(fmt.Sprintf("%s not set", RabbitmqUrlEnvName))
+	}
 	rabbitmqClient := rabbitmq.Init(rabbitUrl)
 	return Service{rabbitmq: rabbitmqClient}
 }
 
 func (service *Service) DefineNotificationQueue() (*amqp.Queue, context.Context, error) {
 	q, err := service.rabbitmq.Channel.QueueDeclare(
-		"NOTIFICATION_QUEUE", // name
-		true,                 // durable
-		false,                // delete when unused
-		false,                // exclusive
-		false,                // no-wait
-		nil,                  // arguments
+		QueueName, // QueueName
+		true,      // durable
+		false,     // delete when unused
+		false,     // exclusive
+		false,     // no-wait
+		nil,       // arguments
 	)
 	if err != nil {
 		log.Print(err, "Failed to declare a queue")
